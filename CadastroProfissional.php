@@ -1,12 +1,12 @@
 <?php
 
-//include $_SERVER['DOCUMENT_ROOT'] . ('/ProjetoIntegrador/Config/Protect.php');
+include $_SERVER['DOCUMENT_ROOT'] . ('/ProjetoIntegrador/Config/Protect.php');
 
 if(isset($_POST['usuario'])){
 
     include $_SERVER['DOCUMENT_ROOT'] . ('/ProjetoIntegrador/Config/Conexao.php');
 
-
+	$disponibilidade = implode(",", $_POST['disponibilidade']);
     $nome_funcionario= $_POST['nome_funcionario'];
     $email = $_POST['email'];
     $usuario = $_POST['usuario'];
@@ -68,7 +68,7 @@ if(isset($_POST['usuario'])){
 				</ul>cabeçalho-link-->
 					
 			<div class="perfil">
-				<h3>Daniel Cristiano Fonseca <br><span>Coordenador</span></h3>
+				<h3> <?php echo $_SESSION['nome_funcionario'] ?> <br><span> <?php echo $_SESSION['cargo'] ?> </span></h3>
 				<div class="imgCx">
 					<img src="img/unnamed.png" alt="...">
 				</div>

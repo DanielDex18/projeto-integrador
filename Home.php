@@ -1,4 +1,12 @@
-<?php   include  $_SERVER['DOCUMENT_ROOT'] . ("/ProjetoIntegrador/Config/Protect.php");?>
+<?php   
+
+include  $_SERVER['DOCUMENT_ROOT'] .  ("/ProjetoIntegrador/Config/Conexao.php");
+
+include  $_SERVER['DOCUMENT_ROOT'] . ("/ProjetoIntegrador/Config/Protect.php");
+
+
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +31,7 @@
 				</ul>cabeçalho-link-->
 					
 			<div class="perfil">
-				<h3>Daniel Cristiano Fonseca <br><span>Coordenador</span></h3>
+				<h3> <?php echo $_SESSION['nome_funcionario'] ?> <br><span> <?php echo $_SESSION['cargo'] ?> </span></h3>
 				<div class="imgCx">
 					<img src="img/unnamed.png" alt="...">
 				</div>
