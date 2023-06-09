@@ -3,7 +3,53 @@
 include $_SERVER['DOCUMENT_ROOT'] . ('/ProjetoIntegrador/Config/Protect.php');
 
 
+if(isset($_POST['usuario'])){
 
+    include $_SERVER['DOCUMENT_ROOT'] . ('/ProjetoIntegrador/Config/Conexao.php');
+
+	
+    $nome_disciplinas= $_POST['nome_disciplinas'];
+    
+
+    $mysqli->query("INSERT INTO disciplinas (id_disciplinas, nome_disciplinas) 
+	VALUES (NULL,'$nome_disciplinas');");
+
+    // Consulta para obter a lista de professores
+$sql_query = "SELECT * FROM funcionarios WHERE cargo = 'Professor'";
+$result = $mysqli->query($sql_query);
+
+// Verifica se há algum erro na consulta
+if (!$result) {
+    die("Erro ao consultar os professores: " . $mysqli->error);
+}
+
+// Array para armazenar os professores disponíveis
+$professores = [];
+
+// Percorre os resultados da consulta
+while ($row = $result->fetch_assoc()) {
+    $professores[$row['id_funcionarios']] = $row['nome_funcionario'];
+}
+
+// Verifica se o formulário foi submetido
+if (isset($_POST['submit'])) {
+    // Dados do formulário
+    $disciplina = $_POST['disciplina'];
+    $professor = $_POST['professor'];
+
+    // Insere os dados na tabela de disciplinas
+    $insert_query = "INSERT INTO disciplinas (disciplina, professor) VALUES ('$disciplina', '$professor')";
+    if ($mysqli->query($insert_query)) {
+        echo "Disciplina cadastrada com sucesso!";
+    } else {
+        echo "Erro ao cadastrar disciplina: " . $mysqli->error;
+    }
+}
+
+	header('Location: /ProjetoIntegrador/CadastroProfissional.php');
+	exit();
+
+}
 ?>
 
 
@@ -108,7 +154,7 @@ include $_SERVER['DOCUMENT_ROOT'] . ('/ProjetoIntegrador/Config/Protect.php');
 
 
             <div class="textfield">
-                    <input type="text" name="nome" placeholder="Digite o nome da disciplina" class="inputs required "
+                    <input type="text" name="nome_Disciplina" placeholder="Digite o nome da disciplina" class="inputs required "
                         oninput="nameValidate()" autofocus>
                     <span class="span-required">Nome deve ter no mínimo 3 caracteres</span>
                 </div>

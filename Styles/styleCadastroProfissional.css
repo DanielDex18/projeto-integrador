@@ -17,7 +17,7 @@ body{
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
-    overflow-y: hidden;
+    
 }
 
         .background{
@@ -257,15 +257,14 @@ body{
             color: black;
         }
 
-        .select-area{
+        .select-area {
             display: flex;
             width: 100%;
             align-items: center;
             justify-content: space-between;
-            
         }
-
-        .select-btn{
+        
+        .select-btn {
             margin: 10px 0px 10px 0px;
             width: 370px;
             display: flex;
@@ -279,13 +278,14 @@ body{
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             z-index: auto;
         }
-
-        .select-btn .btn-text{
+        
+        .select-btn .btn-text {
             font-size: 20px;
             font-weight: 400;
             color: black;
         }
-        .select-btn .arrow-dwn{
+        
+        .select-btn .arrow-dwn {
             display: flex;
             height: 21px;
             width: 21px;
@@ -297,11 +297,12 @@ body{
             justify-content: center;
             transition: 0.3s;
         }
-        .select-btn.open .arrow-dwn{
+        
+        .select-btn.open .arrow-dwn {
             transform: rotate(-180deg);
         }
-
-        .list-items{
+        
+        .checkboxes {
             width: 250px;
             top: 53%;
             height: auto;
@@ -315,10 +316,12 @@ body{
             display: none;
             z-index: 1;
         }
-        .select-btn.open ~ .list-items{
+        
+        .select-btn.open ~ .checkboxes {
             display: block;
         }
-        .list-items .item{
+        
+        .checkboxes .checkbox-item {
             display: flex;
             align-items: center;
             list-style: none;
@@ -328,15 +331,18 @@ body{
             padding: 0 15px;
             border-radius: 8px;
         }
-        .list-items .item:hover{
+        
+        .checkboxes .checkbox-item:hover {
             background-color: #e7edfe;
         }
-        .item .item-text{
+        
+        .checkbox-item .item-text {
             font-size: 16px;
             font-weight: 400;
             color: #333;
         }
-        .item .checkbox{
+        
+        .checkbox-item .checkbox {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -347,19 +353,23 @@ body{
             border: 1.5px solid #c0c0c0;
             transition: all 0.3s ease-in-out;
         }
-        .item.checked .checkbox{
+        
+        .checkbox-item.checked .checkbox {
             background-color: #4070f4;
             border-color: #4070f4;
         }
-        .checkbox .check-icon{
+        
+        .checkbox-item.checked .check-icon {
+            transform: scale(1);
+        }
+        
+        .checkbox .check-icon {
             color: #fff;
             font-size: 11px;
             transform: scale(0);
             transition: all 0.2s ease-in-out;
         }
-        .item.checked .check-icon{
-            transform: scale(1);
-        }
+        
         
         .semana{
             padding: 0 20px 0 10px;
